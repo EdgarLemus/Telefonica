@@ -1,3 +1,5 @@
+defaultTasks 'clean','test','aggregate'
+
 apply plugin: 'java-library'
 // Para agregar un comando que se llama aggregate, que es de Serenity y es para construir el reporte
 apply plugin: 'net.serenity-bdd.aggregator'
@@ -66,3 +68,5 @@ tasks.withType(Test){
 
 // Continue asi falle alguna tarea de Gradle
 gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)
